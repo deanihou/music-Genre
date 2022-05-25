@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Home from "./Home";
+import Home from "./Sound";
 import NF404 from "./NF404";
 import About from "../Pages/About";
 import Nav from "../Components/Nav";

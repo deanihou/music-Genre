@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-800 py-36">
+    <footer className="py-36">
       {" "}
-      <div className="w-full max-w-md px-7 py-10 mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-xl">
+      <div className="w-full max-w-md px-7 py-10 mx-auto = rounded-2xl shadow-xl">
         <div className="flex flex-col">
           <div className="flex">
             <ul className="flex items-center justify-center space-x-2">
@@ -84,9 +84,9 @@ const Footer = () => {
               <li className="flex flex-col items-center space-y-2">
                 <div
                   className="story-ring flex justify-center items-center
-                  bg-gradient-to-tl from-green-200 to-green-500 
+                  bg-gradient-to-tl from-green-300 to-green-500 
                   rounded-full relative cursor-pointer
-                  hover:from-green-400 hover:to-green-600
+                  hover:from-teal-200 hover:to-teal-400
                   transition-all duration-150 delay-100 
                   hover:animate-pulse"
                 >

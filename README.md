@@ -1,6 +1,8 @@
-# PHS MACHINE
+# Never gonna give you up, never gonna let you down:
 
-Detection and Resolving Heat Stress from Pig that utilize Thermographic Imaging, Image processing, & Deep Learning
+## Classifying Music Genre using Deep Convolutional Neural Network case study.
+
+This project can be implemented in a variety of ways, but DCNN will be employed. Deep convolutional neural networks (DCNN) are mostly utilized for object identification, picture classification, and recommendation systems, but they are also used for natural language processing on occasion.
 
 ## Deep Learning Environment
 

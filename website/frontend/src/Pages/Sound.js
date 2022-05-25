@@ -1,6 +1,44 @@
 import React from "react";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import ReactApexChart from "react-apexcharts";
+var options = {
+  series: [
+    {
+      data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+    },
+  ],
+  options: {
+    chart: {
+      type: "bar",
+      height: 350,
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    xaxis: {
+      categories: [
+        "South Korea",
+        "Canada",
+        "United Kingdom",
+        "Netherlands",
+        "Italy",
+        "France",
+        "Japan",
+        "United States",
+        "China",
+        "Germany",
+      ],
+    },
+  },
+};
 
 const Sound = () => {
   return (
@@ -75,8 +113,27 @@ const Sound = () => {
           </div>
         </form>
       </div>
+      <div className="w-full h-full max-w-md p-10 mx-auto">
+        <ProgpressBar progress={0} />
+        <ProgpressBar progress={25} />
+        <ProgpressBar progress={50} />
+        <ProgpressBar progress={75} />
+        <ProgpressBar progress={100} />
+      </div>
     </div>
   );
 };
 
+const ProgpressBar = ({ progress }) => {
+  return (
+    <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+      <div
+        className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+        style={{ width: `${progress}%` }}
+      >
+        {progress}%
+      </div>
+    </div>
+  );
+};
 export default Sound;

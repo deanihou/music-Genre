@@ -1,10 +1,21 @@
 import "./App.css";
 
+import React from "react";
+import Container from "./Pages/Container";
+import Footer from "./Components/Footer";
+import { AnimatePresence, motion } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <div className="App">
-      <p>Hello world</p>
-    </div>
+    <motion.div className="relative dark:bg-gray-900 bg-slate-100">
+      <Router>
+        <AnimatePresence>
+          <Container />
+        </AnimatePresence>
+      </Router>
+      <Footer />
+    </motion.div>
   );
 }
 

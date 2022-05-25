@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.story-ring {
+  padding: 2px;
+}
+
+.story-text {
+  font-size: 13px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +43,124 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.font-Inter{
+    font-family: 'Inter', sans-serif;
+}
+
+.font-SpecialElite {
+  font-family: "Special Elite", cursive;
+}
+
+.font-SynMono {
+  font-family: "Syne Mono", monospace;
+}
+
+.font-Mali {
+  font-family: "Mali", cursive;
+}
+
+.font-MajorMonoDisplay {
+  font-family: "Major Mono Display", monospace;
+}
+
+.font-BadScript {
+  font-family: "Bad Script", cursive;
+}
+
+.font-TheGirlNextDoor {
+  font-family: "The Girl Next Door", cursive;
+}
+
+.font-Yomogi {
+  font-family: "Yomogi", cursive;
+}
+
+.font-NotoSansJP {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  @apply duration-500 bg-gray-50 dark:bg-neutral-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply duration-500 bg-gray-400 dark:bg-neutral-700;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-xl;
+  width: 10px;
+  left: -100px;
+}
+
+/** about **/
+.about-summary {
+  background-color: aqua;
+  z-index: 100000;
+}
+
+.star {
+  background-color: black;
+  position: absolute;
+  width: 1px;
+  transform: rotate(45deg);
+  animation-name: stars_animation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  @keyframes stars_animation {
+    0% {
+      left: 100%;
+      top: 0%;
+      height: 0%;
+    }
+
+    50% {
+      top: -20%;
+      left: 50%;
+      height: 140%;
+    }
+    100% {
+      left: 0%;
+      top: 100%;
+      height: 0%;
+    }
+  }
+}
+
+/* For Feelings Result Layout*/
+
+.figure {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+.figure-content {
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.figcaption {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.2em 0.5em;
+  justify-self: start;
 }

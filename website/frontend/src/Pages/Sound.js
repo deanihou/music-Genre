@@ -114,26 +114,116 @@ const Sound = () => {
         </form>
       </div>
       <div className="w-full h-full max-w-md p-10 mx-auto">
-        <ProgpressBar progress={0} />
-        <ProgpressBar progress={25} />
-        <ProgpressBar progress={50} />
-        <ProgpressBar progress={75} />
-        <ProgpressBar progress={100} />
+        <ProgpressBar progress={90}  genre={"Blues"}/>
+        <ProgpressBar progress={25} genre={"Classical"}  />
+        <ProgpressBar progress={50} genre={"Country"}/>
+        <ProgpressBar progress={75} genre={"Disco"}/>
+        <ProgpressBar progress={20} genre={"Hiphop"}/>
+        <ProgpressBar progress={100} genre={"Jazz"}/>
+        <ProgpressBar progress={40} genre={"Metal"}/>
+        <ProgpressBar progress={50} genre={"Pop"}/>
+        <ProgpressBar progress={60} genre={"Reggae"}/>
+        <ProgpressBar progress={30} genre={"Rock"}/>
       </div>
     </div>
   );
 };
 
-const ProgpressBar = ({ progress }) => {
-  return (
-    <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-      <div
-        className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-        style={{ width: `${progress}%` }}
-      >
-        {progress}%
+const ProgpressBar = ({ progress,genre }) => {
+  if (progress == 100){
+  return(
+    <div className="text-left text-teal-400 font-medium dark:text-white">
+      {genre}
+
+      <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+        <div
+          className="bg-teal-300 shadow-xl shadow-teal-600/50 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+          style={{ width: `${progress}%` }}
+        >
+          {progress}%
+        </div>
       </div>
     </div>
+  );
+  }
+  if (progress <= 25){
+    return(
+      <div className="text-left text-teal-400 font-medium dark:text-white">
+        {genre}
+  
+        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+          <div
+            className="bg-teal-600 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            style={{ width: `${progress}%` }}
+          >
+            {progress}%
+          </div>
+        </div>
+      </div>
+    );
+    }
+    if (progress <= 50){
+      return(
+        <div className="text-left text-teal-400 font-medium dark:text-white">
+          {genre}
+    
+          <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+            <div
+              className="bg-teal-500 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+              style={{ width: `${progress}%` }}
+            >
+              {progress}%
+            </div>
+          </div>
+        </div>
+      );
+      }
+      if (progress < 100){
+        return(
+          <div className="text-left text-teal-400 font-medium dark:text-white">
+            {genre}
+      
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+              <div
+                className="bg-teal-300 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+                style={{ width: `${progress}%` }}
+              >
+                {progress}%
+              </div>
+            </div>
+          </div>
+        );
+        }
+      if (progress <= 75){
+        return(
+          <div className="text-left text-teal-400 font-medium dark:text-white">
+            {genre}
+      
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+              <div
+                className="bg-teal-400 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+                style={{ width: `${progress}%` }}
+              >
+                {progress}%
+              </div>
+            </div>
+          </div>
+        );
+        }
+  return (
+    <div className="text-left text-teal-400 font-medium dark:text-white">
+      {genre}
+
+      <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+        <div
+          className="bg-teal-400 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+          style={{ width: `${progress}%` }}
+        >
+          {progress}%
+        </div>
+      </div>
+    </div>
+    
   );
 };
 export default Sound;

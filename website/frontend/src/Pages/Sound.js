@@ -95,7 +95,7 @@ const Sound = () => {
         </span>
       </div>
       <div className="w-full max-w-md px-7 py-10 mx-auto = rounded-2xl shadow-xl my-10">
-        <div className="mt-8 space-y-3 sm:max-w-lg w-full p-10 bg-white dark:bg-gray-800 rounded-xl z-10">
+        <div className="mt-8 space-y-3 sm:max-w-lg w-full p-10 dark:bg-gray-800 rounded-xl z-10">
           <div className="grid grid-cols-1 space-y-2">
             <label className="text-sm font-bold text-gray-400 dark:text-gray-200 tracking-wide">
               Attach Document
@@ -103,11 +103,11 @@ const Sound = () => {
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               <div className="flex items-center justify-center w-full">
-                <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center border-teal-400">
+                <label className="flex flex-col rounded-lg border-4  shim-teal border-dashed w-full h-60 p-10 group text-center border-teal-400">
                   <div className="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
                     <div className="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
                       <img
-                        className="has-mask w-96 object-center"
+                        className="has-mask w-96 object-center "
                         src="https://media.discordapp.net/attachments/953565721143676951/978963963930886164/pngwing.com_1.png?width=857&height=701"
                         alt="freepik image"
                       />
@@ -179,7 +179,7 @@ const ProgpressBar = ({ progress, genre, index }) => {
 
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
-            className="bg-teal-300 shadow-xl shadow-teal-600/50 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            className="bg-teal-300 shadow-xl  shim-teal shadow-teal-600/50 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
             style={{ width: `${progress}%` }}
           >
             {progress}%
@@ -195,7 +195,7 @@ const ProgpressBar = ({ progress, genre, index }) => {
 
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
-            className="bg-teal-600 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            className="bg-teal-600 text-xs shim-teal font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
             style={{ width: `${progress}%` }}
           >
             {progress}%
@@ -211,7 +211,7 @@ const ProgpressBar = ({ progress, genre, index }) => {
 
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
-            className="bg-teal-500 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            className="bg-teal-500 text-xs shim-teal font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
             style={{ width: `${progress}%` }}
           >
             {progress}%
@@ -227,7 +227,7 @@ const ProgpressBar = ({ progress, genre, index }) => {
 
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
-            className="bg-teal-300 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            className="bg-teal-300 text-xs shim-teal font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
             style={{ width: `${progress}%` }}
           >
             {progress}%

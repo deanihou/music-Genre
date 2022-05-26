@@ -1,46 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import ReactApexChart from "react-apexcharts";
-var options = {
-  series: [
-    {
-      data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
-    },
-  ],
-  options: {
-    chart: {
-      type: "bar",
-      height: 350,
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 4,
-        horizontal: true,
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    xaxis: {
-      categories: [
-        "South Korea",
-        "Canada",
-        "United Kingdom",
-        "Netherlands",
-        "Italy",
-        "France",
-        "Japan",
-        "United States",
-        "China",
-        "Germany",
-      ],
-    },
-  },
-};
 
 const Sound = () => {
+  const [soundClassifier, setSoundClassifier] = useState({
+    Blues: 0.1,
+    Classical: 0.4,
+    Blues: 0.23,
+    Classical: 0.26,
+    Country: 0.75,
+    Disco: 0.78,
+    Hiphop: 0.66,
+    Jazz: 0.1,
+    Metal: 0.42,
+    Pop: 0.52,
+    Reggae: 0.91,
+    Rock: 0.13,
+  });
+  useEffect(() => {
+    const sorted_genre = Object.entries(soundClassifier)
+      .sort(([, b], [, a]) => a - b)
+      .reduce((r, [k, v]) => ({ ...r, [k]: v * 100 }), {});
+    setSoundClassifier(sorted_genre);
+  }, []);
   return (
     <div>
       <div className="p-16 bg-teal-400 text-white space-y-4 text-center flex-none w-full flex flex-col items-center justify-center">
@@ -114,43 +98,44 @@ const Sound = () => {
         </form>
       </div>
       <div className="w-full h-full max-w-md p-10 mx-auto">
-        <ProgpressBar progress={90}  genre={"Blues"}/>
-        <ProgpressBar progress={25} genre={"Classical"}  />
-        <ProgpressBar progress={50} genre={"Country"}/>
-        <ProgpressBar progress={75} genre={"Disco"}/>
-        <ProgpressBar progress={20} genre={"Hiphop"}/>
-        <ProgpressBar progress={100} genre={"Jazz"}/>
-        <ProgpressBar progress={40} genre={"Metal"}/>
-        <ProgpressBar progress={50} genre={"Pop"}/>
-        <ProgpressBar progress={60} genre={"Reggae"}/>
-        <ProgpressBar progress={30} genre={"Rock"}/>
+        {Object.keys(soundClassifier).map((value, index) => {
+          return (
+            <ProgpressBar
+              key={index}
+              index={index}
+              progress={soundClassifier[value]}
+              genre={value}
+            />
+          );
+        })}
       </div>
     </div>
   );
 };
 
-const ProgpressBar = ({ progress,genre }) => {
-  if (progress == 100){
-  return(
-    <div className="text-left text-teal-400 font-medium dark:text-white">
-      {genre}
-
-      <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-        <div
-          className="bg-teal-300 shadow-xl shadow-teal-600/50 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
-          style={{ width: `${progress}%` }}
-        >
-          {progress}%
-        </div>
-      </div>
-    </div>
-  );
-  }
-  if (progress <= 25){
-    return(
+const ProgpressBar = ({ progress, genre, index }) => {
+  if (index == 0) {
+    console.log("Hello");
+    return (
       <div className="text-left text-teal-400 font-medium dark:text-white">
         {genre}
-  
+
+        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+          <div
+            className="bg-teal-300 shadow-xl shadow-teal-600/50 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            style={{ width: `${progress}%` }}
+          >
+            {progress}%
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (progress <= 25) {
+    return (
+      <div className="text-left text-teal-400 font-medium dark:text-white">
+        {genre}
+
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
             className="bg-teal-600 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
@@ -161,55 +146,55 @@ const ProgpressBar = ({ progress,genre }) => {
         </div>
       </div>
     );
-    }
-    if (progress <= 50){
-      return(
-        <div className="text-left text-teal-400 font-medium dark:text-white">
-          {genre}
-    
-          <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-            <div
-              className="bg-teal-500 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
-              style={{ width: `${progress}%` }}
-            >
-              {progress}%
-            </div>
+  }
+  if (progress <= 50) {
+    return (
+      <div className="text-left text-teal-400 font-medium dark:text-white">
+        {genre}
+
+        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+          <div
+            className="bg-teal-500 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            style={{ width: `${progress}%` }}
+          >
+            {progress}%
           </div>
         </div>
-      );
-      }
-      if (progress < 100){
-        return(
-          <div className="text-left text-teal-400 font-medium dark:text-white">
-            {genre}
-      
-            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-              <div
-                className="bg-teal-300 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
-                style={{ width: `${progress}%` }}
-              >
-                {progress}%
-              </div>
-            </div>
+      </div>
+    );
+  }
+  if (progress < 100) {
+    return (
+      <div className="text-left text-teal-400 font-medium dark:text-white">
+        {genre}
+
+        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+          <div
+            className="bg-teal-300 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            style={{ width: `${progress}%` }}
+          >
+            {progress}%
           </div>
-        );
-        }
-      if (progress <= 75){
-        return(
-          <div className="text-left text-teal-400 font-medium dark:text-white">
-            {genre}
-      
-            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-              <div
-                className="bg-teal-400 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
-                style={{ width: `${progress}%` }}
-              >
-                {progress}%
-              </div>
-            </div>
+        </div>
+      </div>
+    );
+  }
+  if (progress <= 75) {
+    return (
+      <div className="text-left text-teal-400 font-medium dark:text-white">
+        {genre}
+
+        <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+          <div
+            className="bg-teal-400 text-xs font-medium text-teal-700 text-center mb-3 p-2 leading-none rounded-full"
+            style={{ width: `${progress}%` }}
+          >
+            {progress}%
           </div>
-        );
-        }
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="text-left text-teal-400 font-medium dark:text-white">
       {genre}
@@ -223,7 +208,6 @@ const ProgpressBar = ({ progress,genre }) => {
         </div>
       </div>
     </div>
-    
   );
 };
 export default Sound;

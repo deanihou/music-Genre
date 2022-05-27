@@ -29,3 +29,9 @@ torch
 torchvision
 flask
 pygame
+wave
+pylab
+librosa
+time
+soundfile
+scipy

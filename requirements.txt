@@ -30,8 +30,8 @@ torchvision
 flask
 pygame
 wave
-pylab
+pylab-sdk
 librosa
-time
 soundfile
 scipy
+audiomentations
